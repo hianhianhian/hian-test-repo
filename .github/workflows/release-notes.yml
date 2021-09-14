@@ -8,7 +8,7 @@ on:
         description: 'Milestone ID'     
         required: true
         default: '1'
-name: Milestone Closure
+name: Milestone Release Notes
 jobs:
   create-release-notes:
     runs-on: ubuntu-latest
@@ -18,5 +18,16 @@ jobs:
       uses: Decathlon/release-notes-generator-action@v3.1.5
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        OUTPUT_FOLDER: .
+        OUTPUT_FOLDER: temp-release-notes
         USE_MILESTONE_TITLE: "true"
+        FILENAME_PREFIX: CHANGELOG_
+    - name: Upload Release Notes to Wiki
+      uses: docker://decathlon/wiki-page-creator-action:latest
+      env:
+        ACTION_MAIL: thehianhianhian@gmail.com
+        ACTION_NAME: hianhianhian
+        GH_PAT: ${{ secrets.GH_PAT }}
+        MD_FOLDER: temp_release_notes
+        OWNER: hianhianhian
+        REPO_NAME: hian-test-repo
+        SKIP_MD: README.md
