@@ -5,9 +5,9 @@ on:
   workflow_dispatch:
     inputs:
       milestoneId:
-        description: '0.0.1-test'     
+        description: 'Milestone ID'     
         required: true
-        default: '1'
+        default: '0.0.1-test'
 name: Milestone Closure
 jobs:
   create-release-notes:
