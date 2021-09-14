@@ -1,0 +1,6 @@
+changelog:
+  sections:
+  - title: ":sparkles: New Features"
+    labels: ["enhancement"]
+  - title: ":bug: Bug Fixes"
+    labels: ["bug"]
