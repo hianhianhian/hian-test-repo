@@ -4,3 +4,5 @@ changelog:
     labels: ["enhancement"]
   - title: ":bug: Bug Fixes"
     labels: ["bug"]
+  exclude:
+    names: "*"
