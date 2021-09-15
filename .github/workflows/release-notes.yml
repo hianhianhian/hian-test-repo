@@ -10,7 +10,34 @@ on:
         default: '1'
 name: Milestone Release Notes
 jobs:
-  create-release-notes:
+  checkout:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+  manual-create-release-notes:
+    if: ${{ github.event_name == 'workflow_dispatch' }}
+    needs: checkout
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Create Release Notes
+      uses: docker://decathlon/release-notes-generator-action:latest
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        OUTPUT_FOLDER: temp_release_notes
+        FILENAME: current-release-notes
+    - name: Upload Release Notes to Wiki
+      uses: docker://decathlon/wiki-page-creator-action:latest
+      env:
+        ACTION_MAIL: thehianhianhian@gmail.com
+        ACTION_NAME: hianhianhian
+        GH_PAT: ${{ secrets.GH_PAT }}
+        MD_FOLDER: temp_release_notes
+        OWNER: hianhianhian
+        REPO_NAME: hian-test-repo
+        SKIP_MD: README.md
+  auto-create-release-notes:
+    needs: checkout
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
