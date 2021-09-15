@@ -9,16 +9,12 @@ on:
         required: true
         default: '1'
 name: Milestone Release Notes
-jobs:
-  checkout:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@master
+jobs: 
   manual-create-release-notes:
     if: ${{ github.event_name == 'workflow_dispatch' }}
-    needs: checkout
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@master
     - name: Create Release Notes
       uses: docker://decathlon/release-notes-generator-action:latest
       env:
@@ -38,9 +34,9 @@ jobs:
         SKIP_MD: README.md
   auto-create-release-notes:
     if: ${{ github.event_name == 'milestone' }}
-    needs: checkout
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@master
     - name: Create Release Notes
       uses: docker://decathlon/release-notes-generator-action:latest
       env:
