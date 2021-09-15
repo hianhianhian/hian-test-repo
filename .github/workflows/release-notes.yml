@@ -19,13 +19,12 @@ jobs:
     needs: checkout
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
     - name: Create Release Notes
       uses: docker://decathlon/release-notes-generator-action:latest
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         OUTPUT_FOLDER: temp_release_notes
-        FILENAME: current-release-notes
+        FILENAME_PREFIX: Manual
     - name: Upload Release Notes to Wiki
       uses: docker://decathlon/wiki-page-creator-action:latest
       env:
@@ -37,10 +36,10 @@ jobs:
         REPO_NAME: hian-test-repo
         SKIP_MD: README.md
   auto-create-release-notes:
+    if: ${{ github.event_name == 'milestone' }}
     needs: checkout
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
     - name: Create Release Notes
       uses: docker://decathlon/release-notes-generator-action:latest
       env:
