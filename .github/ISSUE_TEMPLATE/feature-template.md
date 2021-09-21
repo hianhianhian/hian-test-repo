@@ -18,5 +18,6 @@ Action A | Outcome A
 Action B | Outcome B
 Action C | Outcome C
 
-**Estimated Time (hours) [1,2,3,5,8,13]**  
+## Estimated Time (hours) 
+**Choose from: 1,2,3,5,8,13**
 e.g. 5
