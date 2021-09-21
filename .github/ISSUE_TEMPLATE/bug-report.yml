@@ -1,0 +1,56 @@
+name: Bug Report Form
+description: File a bug report
+title: "[BUG] "
+labels: [bug]
+assignees:
+  - hianhianhian
+body:
+  - type: input
+    id: description
+    attributes:
+      label: Brief description of the bug.
+      description: What happened?
+      placeholder: eg. The game is not loading when I do X.
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Replication Steps
+      description: How do you trigger this bug? Please walk us through it step by step.
+      value: |
+        1.
+        2.
+        3.
+        ...
+      render: bash
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: App Version
+      description: What version of the app are you running?
+      placeholder: "eg. v0.1.0"
+      value: "v"
+    validations:
+      required: true
+  - type: dropdown
+    id: platform
+    attributes:
+      label: What platform(s) is this happening on?
+      multiple: true
+      options:
+        - Android
+        - iOS
+  - type: textarea
+    id: device
+    attributes:
+      label: What device(s) are you using?
+      placeholder: "e.g. Samsung A30s"
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output
+      description: Please copy and paste any relevant log output, or attach a link to the logs.
+      render: shell
