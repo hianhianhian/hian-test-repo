@@ -7,17 +7,12 @@ assignees: ''
 ---
 
 ## User Story Title
-**As:**
-User
-  
-**I want to:**
-Action
-  
-**so that:**
-Outcome
+***As*** User
+***I want to*** Action
+***so that*** Outcome
 
 ## User Story Cases
-When I do... | The expected outcome is...
+When I do this | This happens
 -------------|--------------
 Action A | Outcome A
 Action B | Outcome B
