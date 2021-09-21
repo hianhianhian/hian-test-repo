@@ -1,7 +1,6 @@
 ---
 name: Feature template
 about: File a new feature user story
-title: '[Feat] '
 labels: feature
 assignees: ''
 
@@ -24,5 +23,5 @@ Action A | Outcome A
 Action B | Outcome B
 Action C | Outcome C
 
-**Estimated Time [1,2,3,5,8,13]**  
+**Estimated Time (hours) [1,2,3,5,8,13]**  
 e.g. 5
