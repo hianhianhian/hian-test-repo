@@ -28,6 +28,6 @@ jobs:
         if: github.event_name == 'pull_request_review' && github.event.review.state == 'changes_requested'
         with:
           labels: changes-requested
-          number: github.event.pull_request.number
+#           number: github.event.pull_request.number
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
