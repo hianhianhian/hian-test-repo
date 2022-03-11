@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: KeisukeYamashita/attach-labels@v1
-        if: contains(github.event.issue.title, 'Bug') || contains(github.event.issue.title, 'BUG') || contains(github.event.issue.title, 'bug')
+        if: github.event_name == 'issues' && ( contains(github.event.issue.title, 'Bug') || contains(github.event.issue.title, 'BUG') || contains(github.event.issue.title, 'bug') )
         with:
           labels: unvalidated
         env:
