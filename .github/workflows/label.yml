@@ -6,11 +6,11 @@ name: Add Labels
 on:
   issues:
     types: [closed]
-#   pull_request_review:
-#     types: [submitted]
+  pull_request_review:
+    types: [submitted]
 
 jobs:
-  add-unvalidated-label:
+  add_unvalidated_label:
     name: Add Unvalidated Label
     runs-on: ubuntu-latest
     steps:
@@ -18,5 +18,16 @@ jobs:
         if: github.event_name == 'issues' && ( contains(github.event.issue.title, 'Bug') || contains(github.event.issue.title, 'BUG') || contains(github.event.issue.title, 'bug') )
         with:
           labels: unvalidated
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  add_changes_requested_label:
+    name: Add Changes Requested Label
+    runs-on: ubuntu-latest
+    steps:
+      - uses: KeisukeYamashita/attach-labels@v1
+        if: github.event_name == 'pull_request_review' && github.event.review.state == 'changes_requested'
+        with:
+          labels: changes-requested
+          number: github.event.pull_request.number
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
