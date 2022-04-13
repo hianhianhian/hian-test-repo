@@ -1,4 +1,5 @@
 # .github/workflows/stale-branches.yml
+# https://github.com/crs-k/stale-branches
 
 name: Stale Branches
 
