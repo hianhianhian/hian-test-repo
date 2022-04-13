@@ -23,5 +23,5 @@ jobs:
         comment-updates: false
         max-issues: 20
         tag-committer: true
-        stale-branch-label: 'stale branch 🗑️'
+        stale-branch-label: 'stale-branch'
         compare-branches: 'info'
