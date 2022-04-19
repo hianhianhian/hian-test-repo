@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: KeisukeYamashita/attach-labels@v1
-        if: github.event_name == 'issues' && !contains(github.event.issue.labels, 'validated')
+        if: github.event_name == 'issues' && !contains(github.event.issue.labels.*.name, 'validated')
         with:
           labels: unvalidated
         env:
