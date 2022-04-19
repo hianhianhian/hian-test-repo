@@ -6,16 +6,27 @@ name: Add Labels
 on:
   issues:
     types: [closed]
+  issue_comment:
+    types: [created, edited]
   pull_request_review:
     types: [submitted]
 
 jobs:
+  add_validated_label:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions-ecosystem/action-add-labels@v1
+        if: github.event_name == 'issue_comment' && (contains(github.event.comment.body, 'Validated') || contains(github.event.comment.body, 'validated'))
+        with:
+          labels: validated
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   add_unvalidated_label:
     name: Add Unvalidated Label
     runs-on: ubuntu-latest
     steps:
       - uses: KeisukeYamashita/attach-labels@v1
-        if: github.event_name == 'issues' && ( contains(github.event.issue.title, 'Bug') || contains(github.event.issue.title, 'BUG') || contains(github.event.issue.title, 'bug') )
+        if: github.event_name == 'issues' && github.event.issue.label != 'validated'
         with:
           labels: unvalidated
         env:
