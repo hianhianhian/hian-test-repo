@@ -1,8 +1,6 @@
 ---
 name: Bug report template
 about: File a bug report. Please follow the checklist here before creating the issue:
-  1. Check if there are any existing issues (no duplicates)
-  2. Gather information from the reports
 title: '[Bug] '
 labels: bug
 assignees: ''
