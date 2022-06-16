@@ -1,9 +1,7 @@
 ---
 name: Bug report template
 about: |
-  File a bug report
-  1. Check if there are any existing issues (no duplicates)
-  2. Gather information from the reports
+  File a bug report. Please check this guide before creating the issue: https://www.conventionalcommits.org/en/v1.0.0/
 title: '[Bug] '
 labels: bug
 assignees: ''
