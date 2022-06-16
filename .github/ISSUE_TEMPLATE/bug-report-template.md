@@ -1,6 +1,9 @@
 ---
 name: Bug report template
-about: File a bug report
+about: |
+  File a bug report
+  1. Check if there are any existing issues (no duplicates)
+  2. Gather information from the reports
 title: '[Bug] '
 labels: bug
 assignees: ''
