@@ -1,7 +1,8 @@
 ---
 name: Bug report template
 about: |
-  File a bug report. Please check this guide before creating the issue: https://www.conventionalcommits.org/en/v1.0.0/
+  File a bug report. Please check this guide before creating the issue: 
+  <a href="https://www.conventionalcommits.org/en/v1.0.0/"></a>
 title: '[Bug] '
 labels: bug
 assignees: ''
