@@ -1,6 +1,6 @@
 ---
 name: Bug report template
-about: File a bug report. Please follow the checklist here before creating the issue:
+about: File a bug report
 title: '[Bug] '
 labels: bug
 assignees: ''
